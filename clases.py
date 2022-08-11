@@ -167,8 +167,6 @@ def move():
                     if shop_1.add(req.product, req.count):
                         print(f"Доставить {req.count} {req.product} с {req.from_} в {req.to_}")
                         print(f"Успешно доставлено в {req.to_}")
-                        print(storage_1)
-                        print(shop_1)
                     else:
                         print("В магазине недостаточно места, попробуйте что-то другое")
                         storage_1.add(req.product, req.count)
@@ -180,8 +178,6 @@ def move():
                     if shop_1.add(req.product, req.count):
                         print(f"Доставить {req.count} {req.product} с {req.from_} в {req.to_}")
                         print(f"Успешно доставлено в {req.to_}")
-                        print(storage_1)
-                        print(shop_1)
                     else:
                         print("В магазине недостаточно места, попробуйте что-то другое")
                         storage_1.add(req.product, req.count)
@@ -194,8 +190,6 @@ def move():
                         if storage_1.add(req.product, req.count):
                             print(f"Доставить {req.count} {req.product} с {req.from_} в {req.to_}")
                             print(f"Успешно доставлено в {req.to_}")
-                            print(storage_1)
-                            print(shop_1)
                         else:
                             print("В магазине недостаточно места, попробуйте что-то другое")
                             shop_1.add(req.product, req.count)
@@ -207,8 +201,6 @@ def move():
                         if storage_2.add(req.product, req.count):
                             print(f"Доставить {req.count} {req.product} с {req.from_} в {req.to_}")
                             print(f"Успешно доставлено в {req.to_}")
-                            print(storage_2)
-                            print(shop_1)
                         else:
                             print("В магазине недостаточно места, попробуйте что-то другое")
                             shop_1.add(req.product, req.count)
