@@ -90,6 +90,7 @@ class Shop(Store):
             return True
 
 
+
 class Request:
 
     def __init__(self, request_str: str):
@@ -144,8 +145,8 @@ shop_1 = Shop(items={"арбуз": 2, "ананас": 3, "яблоко": 1, "г�
 
 
 def move():
-    name_storage_1 = "cклад-1"
-    name_storage_2 = "cклад-2"
+    name_storage_1 = "склад-1"
+    name_storage_2 = "склад-2"
     shop = "магазин"
     print("Программа для логистики товара между складами и магазинами запущена")
     while True:
@@ -164,9 +165,11 @@ def move():
             if req.from_.lower() == name_storage_1:
                 if storage_1.remove(req.product, req.count):
                     print("Нужное количество есть на складе")
-                    if shop_1.add(req.product, req.count):
+                    if shop_1.add(req.product, req.count) == True:
                         print(f"Доставить {req.count} {req.product} с {req.from_} в {req.to_}")
                         print(f"Успешно доставлено в {req.to_}")
+                        print(f"{name_storage_1.title()}\n{storage_1}")
+                        print(f"{shop.title()}\n{shop_1}")
                     else:
                         print("В магазине недостаточно места, попробуйте что-то другое")
                         storage_1.add(req.product, req.count)
@@ -178,6 +181,8 @@ def move():
                     if shop_1.add(req.product, req.count):
                         print(f"Доставить {req.count} {req.product} с {req.from_} в {req.to_}")
                         print(f"Успешно доставлено в {req.to_}")
+                        print(f"{name_storage_2.title()}\n{storage_2}")
+                        print(f"{shop.title()}\n{shop_1}")
                     else:
                         print("В магазине недостаточно места, попробуйте что-то другое")
                         storage_1.add(req.product, req.count)
@@ -190,6 +195,8 @@ def move():
                         if storage_1.add(req.product, req.count):
                             print(f"Доставить {req.count} {req.product} с {req.from_} в {req.to_}")
                             print(f"Успешно доставлено в {req.to_}")
+                            print(f"{name_storage_1.title()}\n{storage_1}")
+                            print(f"{shop.title()}\n{shop_1}")
                         else:
                             print("В магазине недостаточно места, попробуйте что-то другое")
                             shop_1.add(req.product, req.count)
@@ -201,13 +208,15 @@ def move():
                         if storage_2.add(req.product, req.count):
                             print(f"Доставить {req.count} {req.product} с {req.from_} в {req.to_}")
                             print(f"Успешно доставлено в {req.to_}")
+                            print(f"{name_storage_2.title()}\n{storage_2}")
+                            print(f"{shop.title()}\n{shop_1}")
                         else:
                             print("В магазине недостаточно места, попробуйте что-то другое")
                             shop_1.add(req.product, req.count)
                     else:
                         print("В магазине нет нужного количества товара или нет такого наименования товара")
             else:
-                print(f"Такого склада нет в списке либо название склада введено не корректно {req.from_.lower()} {name_storage_1}")
+                print(f"Такого склада нет в списке либо название склада введено не корректно")
 
-
-move()
+if __name__ == "__main__":
+    move()
